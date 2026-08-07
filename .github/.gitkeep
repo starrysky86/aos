@@ -1,0 +1,46 @@
+# AOS Gitignore
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Build artifacts
+*.iso
+*.img
+*.squash
+*.squashfs
+*.chroot/
+
+# Packages (large binaries)
+packages/*.deb
+packages/*.AppImage
+packages/*.rpm
+
+# Wine prefixes
+.wine*/
+.wine32/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+env/
+
+# Node
+node_modules/
+
+# Logs
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary
+temp/
+tmp/
+aos-build/
