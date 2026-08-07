@@ -1,0 +1,30 @@
+﻿name: Build AOS ISO
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y cubic genisoimage squashfs-tools
+    
+    - name: Build ISO
+      run: |
+        chmod +x scripts/build-iso.sh
+        sudo ./scripts/build-iso.sh
+    
+    - name: Upload ISO artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: aos-iso
+        path: aos-build/*.iso
